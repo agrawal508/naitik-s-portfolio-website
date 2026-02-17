@@ -8,19 +8,17 @@
   margin: auto;
 }
 
-.skills-header h2 {
+.section-title {
   font-size: 42px;
   font-weight: 800;
   color: #111;
-  letter-spacing: -1px;
 }
 
 .underline {
   width: 60px;
   height: 3px;
   background: #d1d5db;
-  margin-top: 12px;
-  margin-bottom: 70px;
+  margin: 12px 0 70px;
 }
 
 /* GRID */
@@ -30,9 +28,8 @@
   gap: 60px;
 }
 
-/* MAIN CARDS */
-.skills-card-main,
-.education-card-premium {
+/* SKILLS CARD */
+.skills-card {
   background: #ffffff;
   padding: 45px;
   border-radius: 28px;
@@ -40,13 +37,11 @@
   transition: 0.4s ease;
 }
 
-.skills-card-main:hover,
-.education-card-premium:hover {
+.skills-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 25px 60px rgba(0,0,0,0.06);
 }
 
-/* SKILL TAGS */
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
@@ -60,25 +55,24 @@
   border-radius: 999px;
   background: #f3f4f6;
   color: #6b7280;
-  font-weight: 500;
 }
 
 /* CIRCLES */
 .circle-group {
   display: flex;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
 .circle {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  background: conic-gradient(#e5e7eb 0% 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: 0.3s ease;
+  transition: 1.5s ease;
 }
 
 .circle-inner {
@@ -90,18 +84,46 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #111;
 }
 
 .circle span {
   position: absolute;
-  bottom: -26px;
+  bottom: -25px;
   font-size: 13px;
   font-weight: 600;
-  color: #111;
 }
 
-/* EDUCATION */
+/* ANIMATION STATES */
+.fill-95 {
+  background: conic-gradient(#111 0% 95%, #e5e7eb 95% 100%);
+}
+
+.fill-90 {
+  background: conic-gradient(#111 0% 90%, #e5e7eb 90% 100%);
+}
+
+.fill-88 {
+  background: conic-gradient(#111 0% 88%, #e5e7eb 88% 100%);
+}
+
+/* EDUCATION TIMELINE */
+.education-timeline {
+  border-top: 1px solid #e5e7eb;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 40px;
+  padding: 50px 0;
+  border-bottom: 1px solid #e5e7eb;
+  transition: 0.4s ease;
+}
+
+.edu-item:hover {
+  transform: translateX(6px);
+}
+
 .edu-date {
   font-size: 13px;
   letter-spacing: 1px;
@@ -109,28 +131,119 @@
   font-weight: 600;
 }
 
-.education-card-premium h3 {
-  margin-top: 15px;
+.edu-content h3 {
   font-size: 22px;
-  color: #111;
+  margin-bottom: 8px;
 }
 
-.education-card-premium h4 {
-  margin-top: 8px;
+.edu-content h4 {
   font-size: 16px;
   color: #6b7280;
+  margin-bottom: 15px;
 }
 
-.education-card-premium p {
-  margin-top: 18px;
+.edu-content p {
   font-size: 15px;
-  line-height: 1.6;
   color: #6b7280;
+  line-height: 1.7;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .skills-wrapper {
     grid-template-columns: 1fr;
   }
+
+  .edu-item {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cgpa-badge {
+  background: #111;
+  color: white;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+.cgpa-badge.light {
+  background: #e5e7eb;
+  color: #111;
+}
+
+.edu-content p {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+
+.skills-section {
+  position: relative;
+  background: #f5f5f5;
+  padding: 120px 8%;
+  overflow: hidden;
+}
+
+.section-bg-text {
+  position: absolute;
+  top: 80px;
+  left: 8%;
+  font-size: 180px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.04);
+  letter-spacing: 10px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.skills-container {
+  position: relative;
+  z-index: 2;
+}
+
+.section-tagline {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #6b7280;
+  max-width: 600px;
+}
+
+.edu-item {
+  padding: 20px 0;
+}
+
+
+
+.skills-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.education-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.edu-item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 38px;
+  width: 14px;
+  height: 14px;
+  background: #111;
+  border-radius: 50%;
 }
