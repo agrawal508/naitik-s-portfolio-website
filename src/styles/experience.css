@@ -1,0 +1,85 @@
+.experience-section {
+  background: #ffffff;
+  padding: 120px 8%;
+  font-family: 'Inter', sans-serif;
+}
+
+.experience-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.experience-header h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -1px;
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background: #d1d5db;
+  margin-top: 12px;
+  margin-bottom: 70px;
+}
+
+/* Timeline Style Layout */
+.experience-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 50px 0;
+  border-top: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.experience-item:first-of-type {
+  border-top: none;
+}
+
+.experience-item:hover {
+  transform: translateX(6px);
+}
+
+/* Date */
+.experience-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+  letter-spacing: 1px;
+}
+
+/* Content */
+.experience-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.experience-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 15px;
+}
+
+.experience-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #6b7280;
+  max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .experience-date {
+    margin-bottom: 10px;
+  }
+}
