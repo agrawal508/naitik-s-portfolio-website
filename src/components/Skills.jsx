@@ -1,149 +1,145 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./../styles/skills.css";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Code2, Database, BrainCircuit, Wrench, GraduationCap } from "lucide-react";
 
 const Skills = () => {
-  const [animate, setAnimate] = useState(false);
   const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimate(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const skillCategories = [
+    {
+      title: "Frontend",
+      icon: <Code2 className="w-6 h-6 text-black" />,
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Three.js"]
+    },
+    {
+      title: "Backend",
+      icon: <Database className="w-6 h-6 text-gray-700" />,
+      skills: ["Node.js", "Express", "Python", "FastAPI", "MongoDB", "PostgreSQL", "Redis"]
+    },
+    {
+      title: "AI & ML",
+      icon: <BrainCircuit className="w-6 h-6 text-black" />,
+      skills: ["Machine Learning", "NLP", "Scikit-learn", "Pandas", "Gemini API", "Neural Networks"]
+    },
+    {
+      title: "Tools & DevOps",
+      icon: <Wrench className="w-6 h-6 text-gray-700" />,
+      skills: ["Git", "Docker", "Firebase", "Postman", "Linux", "Socket.io"]
     }
+  ];
 
-    return () => observer.disconnect();
-  }, []);
+  const education = [
+    {
+      degree: "B.Tech – Computer Science & Engineering",
+      institution: "Lovely Professional University",
+      period: "AUG '23 – PRESENT",
+      detail: "CGPA: 7.65"
+    },
+    {
+      degree: "Intermediate (Class XII)",
+      institution: "Bhagawati Senior Secondary School",
+      period: "APR '21 – MAR '22",
+      detail: "Score: 91%"
+    }
+  ];
 
   return (
-    <section className="skills-section" ref={sectionRef}>
-      
-      {/* BACKGROUND TEXT */}
-      <h2 className="text-[10vw] font-black text-gray-200/90 absolute top-20 left-4 leading-none select-none uppercase tracking-tighter whitespace-nowrap">
-  SKILLS & EDUCATION
-</h2>
+    <section id="skills" className="py-32 px-6 md:px-10 bg-white relative overflow-hidden" ref={sectionRef}>
 
-      <div className="skills-container">
+      {/* Background Text Overlay */}
+      <h2 className="text-[10vw] font-black text-gray-50 absolute top-20 left-4 leading-none select-none uppercase tracking-tighter whitespace-nowrap z-0">
+        EXPERTISE
+      </h2>
 
-        {/* HEADER */}
-        <div className="skills-header">
-          <h2 className="section-title">Skills & Education</h2>
-          <p className="section-tagline">
-            Building strong technical foundations through learning and real-world practice.
-          </p>
-          <div className="underline"></div>
+      <div className="container mx-auto max-w-7xl relative z-10">
+
+        {/* Section Header */}
+        <div className="mb-20">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            className="text-5xl font-black tracking-tighter text-gray-900 mb-6 uppercase font-heading"
+          >
+            Capabilities & <span className="text-gray-400">Education.</span>
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-500 text-lg max-w-2xl font-medium"
+          >
+            A comprehensive overview of my technical arsenal and academic background.
+          </motion.p>
         </div>
 
-        <div className="skills-wrapper">
+        <div className="flex flex-col lg:flex-row gap-16">
 
-          {/* LEFT SIDE - SKILLS */}
-          <div className="skills-card">
+          {/* Left Side: Skills Grid */}
+          <div className="lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {skillCategories.map((category, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ delay: idx * 0.1 + 0.2 }}
+                className="bg-gray-50 border border-gray-100 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 bg-white rounded-2xl shadow-sm">
+                    {category.icon}
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900 font-heading tracking-tight">{category.title}</h4>
+                </div>
 
-            <h3>Core Skills</h3>
-
-            <div className="skill-tags">
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Next.js</span>
-              <span>Tailwind</span>
-              <span>Node.js</span>
-              <span>Python</span>
-              <span>FastAPI</span>
-              <span>PostgreSQL</span>
-              <span>MongoDB</span>
-              <span>Redis</span>
-            </div>
-
-            <div className="circle-group">
-
-              <div className={`circle ${animate ? "fill-95" : ""}`}>
-                <div className="circle-inner">95%</div>
-                <span>React</span>
-              </div>
-
-              <div className={`circle ${animate ? "fill-90" : ""}`}>
-                <div className="circle-inner">90%</div>
-                <span>Python</span>
-              </div>
-
-              <div className={`circle ${animate ? "fill-88" : ""}`}>
-                <div className="circle-inner">88%</div>
-                <span>ML / AI</span>
-              </div>
-
-            </div>
-
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-4 py-2 bg-white text-gray-600 text-sm font-semibold rounded-xl border border-gray-100 shadow-sm hover:border-black hover:text-black transition-colors cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          {/* RIGHT SIDE - EDUCATION TIMELINE */}
-          <div className="education-timeline">
+          {/* Right Side: Education Timeline */}
+          <div className="lg:w-2/5 relative">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ delay: 0.4 }}
+              className="bg-gray-900 rounded-[2.5rem] p-10 text-white h-full relative overflow-hidden"
+            >
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gray-800 blur-[50px] rounded-full"></div>
 
-            <div className="timeline-line"></div>
-
-            {/* COLLEGE */}
-            <div className="edu-item">
-
-              <div className="edu-date">
-                AUG '23 – PRESENT
-                <br />
-                Punjab, India
+              <div className="flex items-center gap-4 mb-10 relative z-10">
+                <GraduationCap className="w-8 h-8 text-white" />
+                <h4 className="text-2xl font-bold font-heading">Education path</h4>
               </div>
 
-              <div className="edu-content">
-                <h3>Lovely Professional University</h3>
+              <div className="space-y-10 relative z-10 relative border-l-2 border-gray-700 ml-3 pl-8">
+                {education.map((item, idx) => (
+                  <div key={idx} className="relative">
+                    {/* Timeline dot */}
+                    <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-gray-900 border-4 border-gray-400"></div>
 
-                <h4>
-                  B.Tech – Computer Science & Engineering
-                  <span className="cgpa-badge">CGPA: 7.65</span>
-                </h4>
+                    <span className="text-gray-400 font-bold text-sm tracking-widest uppercase mb-2 block">
+                      {item.period}
+                    </span>
+                    <h5 className="text-xl font-bold mb-1 text-white">{item.degree}</h5>
+                    <p className="text-gray-400 font-medium mb-3">{item.institution}</p>
+                    <span className="inline-block px-3 py-1 bg-white/10 rounded-lg text-sm font-bold text-gray-200">
+                      {item.detail}
+                    </span>
+                  </div>
+                ))}
               </div>
-            </div>
-
-            {/* SENIOR SECONDARY */}
-            <div className="edu-item">
-
-              <div className="edu-date">
-                APR '21 – MAR '22
-                <br />
-                Dausa, Rajasthan
-              </div>
-
-              <div className="edu-content">
-                <h3>Bhagawati Senior Secondary School</h3>
-
-                <h4>
-                  Intermediate (Class XII)
-                  <span className="cgpa-badge light">91%</span>
-                </h4>
-              </div>
-            </div>
-
-            {/* SECONDARY SCHOOL */}
-            <div className="edu-item">
-
-              <div className="edu-date">
-                APR '16 – MAR '20
-                <br />
-                Dausa, Rajasthan
-              </div>
-
-              <div className="edu-content">
-                <h3>Bharat Bal Vidya Mandir School</h3>
-
-                <h4>
-                  Matriculation (Class X)
-                  <span className="cgpa-badge light">89.33%</span>
-                </h4>
-              </div>
-            </div>
-
+            </motion.div>
           </div>
 
         </div>

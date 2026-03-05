@@ -25,15 +25,15 @@ const About = () => {
     <section id="about" className="py-32 px-6 md:px-10 bg-[#f8f8f8] relative overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
-          
+
           {/* Left Side: Bio & Typography */}
           <div className="lg:w-1/2 relative">
             {/* Large Background Text Effect */}
             <h2 className="text-[10vw] font-black text-gray-200/90 absolute -top-20 -left-4 leading-none select-none uppercase tracking-tighter">
               ABOUT
             </h2>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -42,13 +42,13 @@ const About = () => {
               <h3 className="text-5xl md:text-6xl font-black tracking-tighter text-gray-900 leading-[1.1] mb-8">
                 Crafting Experiences <br /> Beyond Just Code.
               </h3>
-              
+
               <div className="space-y-6 max-w-xl">
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  I'm a 3rd year Computer Science student focused on becoming a full-stack engineer through the MERN ecosystem. While frontend is currently my strongest edge, I intentionally build complete systems — from responsive interfaces to structured backend architecture.
+                  I'm a Full-Stack Software Engineer building scalable applications with the MERN stack and Python. I architect complete systems, focusing on robust backend logic and intuitive frontend interfaces.
                 </p>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  I care deeply about clean UI, smooth animations, scalable structure and performance-driven design. For me, development isn't just writing code — it's engineering experiences that feel intentional, polished and efficient.
+                  My technical focus lies in clean architecture, performance optimization, and integrating AI capabilities. I prioritize engineering solutions that are intentional, polished, and highly efficient.
                 </p>
               </div>
             </motion.div>

@@ -8,8 +8,18 @@ html {
 
 body {
   margin: 0;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sora', sans-serif;
 }
 
 /* Adding a smooth transition for all elements */
@@ -17,8 +27,8 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Custom selection color to match your brand blue */
+/* Custom selection color to match your new minimalist brand */
 ::selection {
-  background: #2563eb;
+  background: #111;
   color: white;
 }

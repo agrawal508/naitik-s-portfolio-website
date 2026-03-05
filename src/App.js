@@ -14,9 +14,9 @@ function App() {
         {/* All sections are mapped to your resume data */}
         <Hero />
         <About />
-        <Skills />
-        {/* <Experience /> */}
+        
         <Projects />
+        <Skills />
         <Achievements />
         <Contact />
       </main>
