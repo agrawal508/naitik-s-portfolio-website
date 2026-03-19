@@ -43,7 +43,7 @@ const Achievements = () => {
               <Code size={32} />
             </div>
             <h4 className="text-xl font-bold mb-2 z-10">LeetCode Profiler</h4>
-            <p className="text-5xl font-black text-black mb-4 z-10">150+</p>
+            <p className="text-5xl font-black text-black mb-4 z-10">200+</p>
             <p className="text-gray-500 font-medium text-sm leading-relaxed z-10">Complex DSA problems solved focusing on Arrays, Trees, Dynamic Programming, and Graph theory.</p>
           </motion.div>
 

@@ -4,17 +4,24 @@ import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-24 pb-12 px-6 md:px-10 relative overflow-hidden bg-white">
-      {/* Subtle Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-gray-100 blur-[100px] opacity-70"></div>
+      {/* ── Floating colour orbs (hero only, clipped by overflow-hidden) ── */}
+      <div className="motion-safe:block hidden" aria-hidden="true">
+        {/* Orb 1 — blue-ish */}
+        <div className="absolute top-[-120px] left-[-80px] w-[500px] h-[500px] rounded-full bg-[#93b4ff] opacity-40 blur-[80px] animate-floatOrb1" style={{ willChange: 'transform', zIndex: 0 }} />
+        {/* Orb 2 — green-ish */}
+        <div className="absolute top-[40px] right-[-60px] w-[400px] h-[400px] rounded-full bg-[#86dba9] opacity-35 blur-[80px] animate-floatOrb2" style={{ willChange: 'transform', zIndex: 0 }} />
+        {/* Orb 3 — warm peach */}
+        <div className="absolute bottom-[-80px] left-[35%] w-[300px] h-[300px] rounded-full bg-[#ffb38a] opacity-35 blur-[80px] animate-floatOrb3" style={{ willChange: 'transform', zIndex: 0 }} />
+      </div>
 
       {/* Social Links Sidebar - Hidden on mobile, relative on mobile */}
-      <div className="hidden md:flex absolute flex-col gap-6 text-gray-400 left-8 top-1/2 -translate-y-1/2">
+      <div className="hidden md:flex absolute flex-col gap-6 text-gray-400 left-8 top-1/2 -translate-y-1/2 z-10">
         <a href="https://github.com/agrawal508" target="_blank" rel="noreferrer" className="hover:text-black transition-colors transform hover:scale-110"><Github size={22} /></a>
         <a href="https://www.linkedin.com/in/naitik-agarwal" target="_blank" rel="noreferrer" className="hover:text-black transition-colors transform hover:scale-110"><Linkedin size={22} /></a>
         <a href="mailto:agrawalnaitik508@gmail.com" className="hover:text-black transition-colors transform hover:scale-110"><Mail size={22} /></a>
       </div>
 
-      <div className="container mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-12 md:gap-20">
+      <div className="container mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-12 md:gap-20 relative z-10">
 
         {/* Left Side: Text Content */}
         <div className="w-full md:w-3/5 flex flex-col justify-center order-2 md:order-1 mt-8 md:mt-0">
@@ -38,7 +45,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-gray-500 text-lg md:text-xl max-w-xl font-medium leading-relaxed mb-10 border-l-4 border-gray-200 pl-5"
           >
-            Full Stack Developer specializing in React, Node.js, and Python. I engineer clean, performant, and reliable software designed for scale.
+            Full Stack Developer blending software engineering with machine learning. I build clean, scalable systems and intelligent tools that solve real-world problems.
           </motion.p>
 
           <motion.div

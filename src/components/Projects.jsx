@@ -51,9 +51,9 @@ const Projects = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-6xl font-black relative z-10 tracking-tighter text-gray-900 uppercase font-heading"
+            className="text-5xl md:text-5xl font-black relative z-10 tracking-tighter text-gray-900 uppercase font-heading"
           >
-            Built With <span className="text-gray-400">Purpose.</span>
+            Turning ideas into <span className="text-gray-400">production-ready software.</span>
           </motion.h3>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

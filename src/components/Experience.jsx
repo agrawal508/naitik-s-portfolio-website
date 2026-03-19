@@ -37,7 +37,7 @@ const Experience = () => {
             <h3>Lovely Professional University</h3>
             <h4>B.Tech Computer Science & Engineering</h4>
             <p>
-              Maintaining a CGPA of 7.65 while focusing on algorithmic
+              Maintaining a CGPA of 7.82 while focusing on algorithmic
               thinking and structured problem solving.
             </p>
           </div>
